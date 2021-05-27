@@ -30,12 +30,12 @@ public class Missile{
 	
 	public void getTraj(){
 		double ux,uy,length,i;
-		length=((this.fx-this.ix)^2+(this.fy-this.iy)^2)^(1/2);
+		length=Math.sqrt((this.fx-this.ix)^2+(this.fy-this.iy)^2);
 		ux=(this.fx-this.ix)/length;
 		uy=(this.fy-this.iy)/length;
 		Point p;
-		for(i=0;i<length;i++){
-			p=new Point((int)(ux*i),(int)(uy*i));
+		for(i=1;i<=length*1.5;i++){
+			p=new Point((int)(ix+ux*i),(int)(iy+uy*i));
 			xy.add(p);
 		}
 	}
